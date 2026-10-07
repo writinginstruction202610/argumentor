@@ -33,8 +33,8 @@ test('the multi-agent review returns four guarded roles with stable ids and prov
   assert.deepEqual(Object.keys(out.results).sort(), ['analyst', 'coordinator', 'language', 'socratic']);
   assert.equal(calls.length, 4);
   assert.match(out.results.analyst.items[0].id, /^A\d$/);
-  assert.match(out.results.socratic.questions[0].id, /^S\d$/);
-  assert.ok(out.results.coordinator.priorities[0].basedOn.every(id => /^[AS]\d$/.test(id)));
+  assert.match(out.results.socratic.questions[0].id, /^Q\d$/);
+  assert.ok(out.results.coordinator.priorities[0].basedOn.every(id => /^[AQ]\d$/.test(id)));
   assert.match(out.meta.promptVersion, /^[0-9a-f]{12}$/);
 });
 
@@ -119,7 +119,7 @@ test('later rounds receive prior rounds, fade frames and ask a self-question', a
 });
 
 test('dialogue turns close at the turn limit and clarifications use the clarify move', async () => {
-  const question = { id: 'S1', kind: 'question', type: 'evidence', target: 'Reason 1', text: 'What would a manager need to see?' };
+  const question = { id: 'Q1', kind: 'question', type: 'evidence', target: 'Reason 1', text: 'What would a manager need to see?' };
   const thread = [
     { from: 'learner', text: 'They would need numbers about stress levels.' }, { from: 'coach', text: 'Where could such numbers come from?' },
     { from: 'learner', text: 'Maybe from an anonymous staff survey.' }, { from: 'coach', text: 'What would make that survey fair?' },

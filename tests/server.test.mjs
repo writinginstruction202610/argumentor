@@ -105,7 +105,7 @@ test('dialogue and revision-check endpoints validate threads and priorities', as
   const server = await start();
   try {
     const base = { input: MAP, consent: true, consentVersion: CONSENT_VERSION };
-    const question = { id: 'S1', kind: 'question', type: 'evidence', target: 'Reason 1', text: 'What would a manager need to see?' };
+    const question = { id: 'Q1', kind: 'question', type: 'evidence', target: 'Reason 1', text: 'What would a manager need to see?' };
     const ok = await (await post(server.base, '/api/dialogue', { ...base, question, thread: [{ from: 'learner', text: 'Numbers about stress at work.' }] })).json();
     assert.equal(ok.move, 'probe');
     const long = Array.from({ length: 7 }, (_, index) => ({ from: index % 2 ? 'coach' : 'learner', text: 'Some words here.' }));

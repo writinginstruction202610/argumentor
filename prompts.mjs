@@ -42,7 +42,7 @@ export const SHAPES = {
   analyst: '{"focus":"…","checks":{"claim":{"scope":"overbroad","answersTopic":"yes"},"reasons":[{"target":"Reason 1","evidenceStatus":"personal","evidenceLink":"partly","claimLink":"missing"}],"counterarguments":[{"target":"Counterargument 1","fairness":"fair","responseType":"rebut"}]},"schemes":[{"target":"Reason 1","scheme":"example","note":"…"}],"observations":[{"criterion":"warrant","target":"Reason 1","anchor":"exact learner words","text":"…"}],"strength":{"target":"Reason 2","anchor":"exact learner words","text":"…"},"selfAssessment":{"agreement":"partly","note":"…"}}',
   socratic: '{"focus":"…","questions":[{"type":"evidence","target":"Reason 1","anchor":"exact learner words","text":"…?"}]}',
   language: '{"focus":"…","observations":[{"criterion":"stance","target":"Claim","anchor":"exact learner words","text":"…"}],"frames":[{"move":"limit a claim","text":"In most cases, …, although …"}]}',
-  coordinator: '{"focus":"…","priorities":[{"target":"Reason 2","type":"argument","basedOn":["A1","S1"],"text":"…","successCheck":"…?"}],"tension":"","nextStep":"…"}',
+  coordinator: '{"focus":"…","priorities":[{"target":"Reason 2","type":"argument","basedOn":["A1","Q1"],"text":"…","successCheck":"…?"}],"tension":"","nextStep":"…"}',
   dialogue: '{"move":"probe","reply":"…","insight":""}',
   check: '{"focus":"…","checks":[{"priorityId":"R1","status":"partly","anchor":"exact words from revised","note":"…"}],"question":"…?"}'
 };
@@ -84,13 +84,13 @@ Return JSON: ${SHAPES.socratic}`,
 Return JSON: ${SHAPES.language}`,
 
   coordinator: `ROLE: Revision coordinator (the last step before the learner revises).
-Choose 1–2 revision priorities from the specialists' items in handoff (ids such as A1, S1, L1). Add a second priority only if it is independent of the first. Do not add new issues.
+Choose 1–2 revision priorities from the specialists' items in handoff (ids such as A1, Q1, L1). Add a second priority only if it is independent of the first. Do not add new issues.
 - Prefer argument-level issues (claim scope, missing evidence, a warrant missing a link, a counterargument without a fair response) over sentence-level language, unless a language problem hides what a reason means.
 - Each priority has "target"; "type" ("argument" or "language"); "basedOn" (the ids it comes from); "text": a task that starts with a verb and says which part of the map or draft to work on and what to examine (at most 45 words; never say what to write); "successCheck": one question the learner can ask about their own revision to know the priority is met (at most 25 words).
 - If learnerSelfAssessment is given, say in "focus" how the priorities relate to the weakness the learner named.
 - If learnerGoal (from an earlier task) is relevant, mention it briefly in "nextStep".
 - If specialists pull in different directions, name the tension in "tension"; otherwise use "".
-- "nextStep": one sentence: which Socratic question to answer first in the dialogue panel (name its id, for example S1), then revise in Step 4.
+- "nextStep": one sentence: which Socratic question to answer first in the dialogue panel (name its id, for example Q1), then revise in Step 4.
 "focus": one sentence summarising the revision goal.
 Return JSON: ${SHAPES.coordinator}`
 };
@@ -120,7 +120,7 @@ The learner revised their text after feedback. For each item in priorities, comp
 "focus": one sentence describing the main change in this revision.
 Return JSON only: ${SHAPES.check}`;
 
-const SINGLE_TEXT = `ROLE: Single-pass coach (research ablation mode). Do the work of all four specialists in one response, following each section below. In this mode "handoff.analyst" means your own analyst section and "handoff" for the coordinator means your own analyst, socratic and language sections; schemeQuestions lists critical questions for every scheme. Items are numbered automatically in order of appearance: analyst observations A1, A2 …; socratic questions S1, S2 …; language observations L1, L2 …. Use these ids in coordinator.basedOn.
+const SINGLE_TEXT = `ROLE: Single-pass coach (research ablation mode). Do the work of all four specialists in one response, following each section below. In this mode "handoff.analyst" means your own analyst section and "handoff" for the coordinator means your own analyst, socratic and language sections; schemeQuestions lists critical questions for every scheme. Items are numbered automatically in order of appearance: analyst observations A1, A2 …; socratic questions Q1, Q2 …; language observations L1, L2 …. Use these ids in coordinator.basedOn.
 
 [analyst section]
 ${ROLE_TEXT.analyst}

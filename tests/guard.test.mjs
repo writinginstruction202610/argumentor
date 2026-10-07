@@ -71,8 +71,8 @@ test('Socratic questions must be open, single and non-leading', () => {
     { type: 'evidence', target: 'Reason 1', anchor: 'tracking app makes everyone nervous', text: "Isn't one cousin's view too narrow?" },
     { type: 'assumption', target: 'Reason 2', anchor: 'AI systems can misjudge normal behaviour', text: 'Can the system be wrong?' }
   ] }, ctx());
-  assert.ok(hard.includes('QUESTION_FORM:S1'));
-  assert.ok(notes.includes('CLOSED_QUESTION:S2'));
+  assert.ok(hard.includes('QUESTION_FORM:Q1'));
+  assert.ok(notes.includes('CLOSED_QUESTION:Q2'));
 });
 
 test('sentence frames are normalised; long frames and frames copying the learner are removed', () => {
@@ -90,7 +90,7 @@ test('sentence frames are normalised; long frames and frames copying the learner
 });
 
 test('coordinator references are filtered to known ids', () => {
-  const { result, notes } = guardRole('coordinator', { focus: 'Two priorities.', priorities: [{ target: 'Reason 1', type: 'argument', basedOn: ['A1', 'Z9'], text: 'Explain why stress matters to managers.', successCheck: 'Can a manager see the link?' }] }, ctx({ knownIds: ['A1', 'S1'] }));
+  const { result, notes } = guardRole('coordinator', { focus: 'Two priorities.', priorities: [{ target: 'Reason 1', type: 'argument', basedOn: ['A1', 'Z9'], text: 'Explain why stress matters to managers.', successCheck: 'Can a manager see the link?' }] }, ctx({ knownIds: ['A1', 'Q1'] }));
   assert.deepEqual(result.priorities[0].basedOn, ['A1']);
   assert.ok(notes.includes('BASEDON_INVALID:R1'));
 });

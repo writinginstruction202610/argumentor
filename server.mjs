@@ -78,7 +78,7 @@ function validateQuestion(raw) {
   const kind = raw.kind === 'feedback' ? 'feedback' : 'question';
   const id = str(raw.id, 8);
   const text = str(raw.text, 600);
-  const idOk = kind === 'question' ? /^S[1-3]$/.test(id) : /^(A[1-3]|L[1-2]|R[1-2])$/.test(id);
+  const idOk = kind === 'question' ? /^Q[1-3]$/.test(id) : /^(A[1-3]|L[1-2]|R[1-2])$/.test(id);
   if (!idOk || !text) throw new InputError('INVALID_REQUEST', 'question');
   return { id, kind, type: kind === 'feedback' ? 'feedback' : (QUESTION_TYPES[raw.type] ? raw.type : 'other'), target: str(raw.target, 40), text };
 }

@@ -174,7 +174,7 @@ function buildItems(rawItems, max, role, ctx, notes) {
 function buildQuestions(rawQuestions, max, ctx, notes) {
   const questions = [];
   asList(rawQuestions).slice(0, max).forEach((raw, index) => {
-    const id = `S${index + 1}`;
+    const id = `Q${index + 1}`; // Socratic question ids use Q so they do not clash with source ids S1–S6
     const item = isObject(raw) ? raw : { text: asText(raw) };
     const text = str(asText(item.text ?? item.question), 500);
     if (!text) { notes.push(`EMPTY_ITEM:${id}`); return; }

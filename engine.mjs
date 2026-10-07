@@ -62,7 +62,7 @@ export async function dialogue(body) {
   const kind = raw.kind === 'feedback' ? 'feedback' : 'question';
   const id = str(raw.id, 8);
   const text = str(raw.text, 600);
-  if (!(kind === 'question' ? /^S[1-3]$/ : /^(A[1-3]|L[1-2]|R[1-2])$/).test(id) || !text) fail('INVALID_REQUEST', 'question');
+  if (!(kind === 'question' ? /^Q[1-3]$/ : /^(A[1-3]|L[1-2]|R[1-2])$/).test(id) || !text) fail('INVALID_REQUEST', 'question');
   const question = { id, kind, type: kind === 'feedback' ? 'feedback' : (QUESTION_TYPES[raw.type] ? raw.type : 'other'), target: str(raw.target, 40), text };
 
   const list = body.thread;

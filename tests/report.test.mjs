@@ -13,7 +13,7 @@ function sampleState() {
   state.learnerCode = 'S07';
   const round = newRound(1, validateInput(MAP));
   round.results.analyst = { role: 'analyst', focus: 'F', items: [{ id: 'A1', criterion: 'warrant', target: 'Reason 1', anchor: '', anchorField: '', text: '<script>alert(1)</script>' }], questions: [], frames: [], schemes: [], priorities: [], guard: { notes: [] } };
-  round.dialogue.S1 = { kind: 'question', closed: true, takeaway: 'Evidence must be checkable.', turns: [{ from: 'learner', text: 'Numbers.' }, { from: 'coach', text: 'Which numbers?', move: 'probe', insight: '' }] };
+  round.dialogue.Q1 = { kind: 'question', closed: true, takeaway: 'Evidence must be checkable.', turns: [{ from: 'learner', text: 'Numbers.' }, { from: 'coach', text: 'Which numbers?', move: 'probe', insight: '' }] };
   round.decisions.R1 = { decision: 'adapt', reason: 'Partly.' };
   round.revised = 'A revised text.';
   state.rounds = [round];

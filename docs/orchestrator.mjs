@@ -140,7 +140,7 @@ export async function runReview({ input, task = null, mode = 'multi', round = 1,
   };
 
   const fallbackCoordinator = note => {
-    results.coordinator = finalizeRole({ role: 'coordinator', focus: results.analyst.focus, items: [], questions: [], frames: [], schemes: [], checks: null, strength: null, selfAssessment: null, priorities: fallbackPriorities(results.analyst), tension: '', nextStep: results.socratic?.questions?.length ? 'Answer question S1 in the dialogue panel, then revise in Step 4.' : 'Revise in Step 4.' }, { guard: { repaired: false, regenerated: false, notes: [note] }, meta: { servedModel: '', ms: 0, tokens: 0, calls: 0 } });
+    results.coordinator = finalizeRole({ role: 'coordinator', focus: results.analyst.focus, items: [], questions: [], frames: [], schemes: [], checks: null, strength: null, selfAssessment: null, priorities: fallbackPriorities(results.analyst), tension: '', nextStep: results.socratic?.questions?.length ? 'Answer question Q1 in the dialogue panel, then revise in Step 4.' : 'Revise in Step 4.' }, { guard: { repaired: false, regenerated: false, notes: [note] }, meta: { servedModel: '', ms: 0, tokens: 0, calls: 0 } });
     emit({ type: 'result', role: 'coordinator', result: results.coordinator });
   };
 

@@ -6,7 +6,7 @@ export const CONSENT_VERSION = '2026-10-v1';
 export const pair = (zh, en) => ({ zh, en });
 
 export const ROLES = ['analyst', 'socratic', 'language', 'coordinator'];
-export const ROLE_PREFIX = { analyst: 'A', socratic: 'S', language: 'L', coordinator: 'R' };
+export const ROLE_PREFIX = { analyst: 'A', socratic: 'Q', language: 'L', coordinator: 'R' };
 export const LEVELS = ['B1', 'B2', 'C1'];
 export const MAX_ARGUMENTS = 5;
 export const MAX_COUNTERS = 3;
@@ -720,7 +720,7 @@ function legacyResult(raw, role) {
   return normalizeRoleResult({
     focus: asText(raw?.focus),
     items: role === 'coordinator' ? [] : observations.map((text, index) => ({ id: `${prefix}${index + 1}`, criterion: 'other', text })),
-    questions: role === 'socratic' ? questions.map((text, index) => ({ id: `S${index + 1}`, type: 'other', text })) : [],
+    questions: role === 'socratic' ? questions.map((text, index) => ({ id: `${prefix}${index + 1}`, type: 'other', text })) : [],
     frames: list(raw?.frames),
     priorities: role === 'coordinator' ? observations.map((text, index) => ({ id: `R${index + 1}`, text, basedOn: [] })) : []
   }, role);

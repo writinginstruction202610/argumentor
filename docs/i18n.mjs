@@ -31,7 +31,7 @@ export const ROLE_HELP = {
   coordinator: pair('把反馈整理为一至两个可检验的修订重点', 'Turns feedback into one or two checkable revision priorities'),
   guard: pair('程序核查引文、改写、语言与引用是否真实', 'Software check for quotes, rewriting, language and invented sources')
 };
-export const ROLE_SHORT = { analyst: 'A', socratic: 'S', language: 'L', coordinator: 'R' };
+export const ROLE_SHORT = { analyst: 'A', socratic: 'Q', language: 'L', coordinator: 'R' };
 
 export const LABELS = {
   topic: pair('写作议题', 'Writing question'),

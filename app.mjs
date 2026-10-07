@@ -94,7 +94,7 @@ function load() {
 function portfolio() { try { return JSON.parse(store().getItem(PORTFOLIO) || '[]'); } catch { return []; } }
 function lastGoal() { const entry = portfolio().filter(item => String(item?.transfer || '').trim()).at(-1); return entry ? String(entry.transfer).slice(0, 300) : ''; }
 
-// Reply drafts, thread errors and open clarify boxes are keyed by item id (A1, S1, R1 …), and those ids are
+// Reply drafts, thread errors and open clarify boxes are keyed by item id (A1, Q1, R1 …), and those ids are
 // reused every round, so they must be cleared whenever the round or the whole task changes.
 function resetRoundUI() {
   ui.selfDraft = { element: '', reason: '', question: '' };
@@ -425,10 +425,11 @@ function flow(round) {
   const status = role => ui.statuses[role] || (round?.results?.[role] ? (round.results[role].guard?.notes?.some(note => /FALLBACK|ASSEMBLY/.test(note)) ? 'fallback' : 'done') : round?.roleErrors?.[role] ? 'error' : '');
   const node = role => {
     const value = status(role);
-    const label = value === 'running' ? t('分析中', 'Working') : value === 'repairing' ? t('修正中', 'Repairing') : value === 'done' ? t('已返回', 'Returned') : value === 'fallback' ? t('程序汇总', 'Assembled') : value === 'error' ? t('未返回', 'Unavailable') : t('等待中', 'Waiting');
+    const label = value === 'running' ? t('运行中', 'Working') : value === 'repairing' ? t('修正中', 'Repairing') : value === 'done' ? t('已完成', 'Done') : value === 'fallback' ? t('程序汇总', 'Assembled') : value === 'error' ? t('未返回', 'Unavailable') : t('等待中', 'Waiting');
     return html`<div class="flow-node ${value}"><span class="flow-dot">${value === 'done' ? '✓' : ROLE_SHORT[role]}</span><span>${tx(ROLE_NAMES[role])}</span><em>${label}</em></div>`;
   };
-  return html`<div class="orchestration" aria-hidden="true">${node('analyst')}<span class="flow-arrow">→</span><div class="flow-middle">${node('socratic')}${node('language')}</div><span class="flow-arrow">→</span>${node('coordinator')}<span class="flow-arrow">⇢</span><div class="flow-node guard ${round?.results?.analyst ? 'done' : ''}"><span class="flow-dot">✓</span><span>${tx(ROLE_NAMES.guard)}</span><em>${t('每条输出', 'every output')}</em></div></div>`;
+  const arrow = html`<span class="flow-arrow">→</span>`;
+  return html`<div class="orchestration" aria-hidden="true">${node('analyst')}${arrow}${node('socratic')}${arrow}${node('language')}${arrow}${node('coordinator')}<span class="flow-arrow">⇢</span><div class="flow-node guard ${round?.results?.analyst ? 'done' : ''}"><span class="flow-dot">✓</span><span>${tx(ROLE_NAMES.guard)}</span><em>${t('核查每条输出', 'checks each output')}</em></div></div>`;
 }
 
 function startHere(round) {
@@ -501,7 +502,7 @@ function questionsCard(round) {
   if (!socratic) return round.roleErrors.socratic ? html`<article class="agent-card socratic unavailable"><h3>${tx(ROLE_NAMES.socratic)}</h3><p>${t('本轮追问未返回。你可以直接修订，或稍后重新运行。', 'Questions did not return this round. You can revise directly or run again later.')}</p></article>` : '';
   const minimum = state.task?.minDialogue ?? 1;
   return html`<article class="agent-card socratic" id="card-socratic">
-    <div class="agent-top"><span class="agent-avatar">S</span><div><h3>${tx(ROLE_NAMES.socratic)}</h3><small>${tx(ROLE_HELP.socratic)}</small></div></div>
+    <div class="agent-top"><span class="agent-avatar">Q</span><div><h3>${tx(ROLE_NAMES.socratic)}</h3><small>${tx(ROLE_HELP.socratic)}</small></div></div>
     <h4 lang="en">${socratic.focus}</h4>
     <p class="dialogue-hint">${t(`请至少回答 ${minimum} 个问题。教练会根据你的回答继续追问，但不会替你回答或改写。`, `Answer at least ${minimum} question(s). The coach follows up on your answers but never answers for you or rewrites your text.`)}</p>
     ${socratic.questions.map(item => html`<div class="question-card" id="item-${item.id}">

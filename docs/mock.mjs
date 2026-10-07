@@ -66,7 +66,7 @@ function coordinator(handoff) {
     focus: `${LABEL}: one revision priority before the next draft.`,
     priorities: [{ target: analystItem?.target || 'Claim', basedOn, text: `${LABEL}: revisit ${analystItem?.target || 'your claim'} and check that a reader can see why the evidence supports it.` }],
     tension: '',
-    nextStep: 'Answer question S1 in the dialogue panel, then revise in Step 4.'
+    nextStep: 'Answer question Q1 in the dialogue panel, then revise in Step 4.'
   };
 }
 
