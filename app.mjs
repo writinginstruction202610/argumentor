@@ -264,7 +264,7 @@ function banners() {
   const list = [];
   if (ui.demo) {
     const meta = ui.demo.meta || {};
-    list.push(html`<div class="demo-banner" role="status"><div><strong>${t('演示回放', 'Demo replay')}</strong> · ${t(`模拟学习者（由 AI 助手扮演）完成“${meta.topicZh || '职场AI监控'}”议论文。智能体输出录制自真实 DeepSeek 运行（${meta.recordedAt || ''}，${meta.model || ''}）。在此的操作不会保存。`, `A simulated EFL learner (role-played by an AI assistant) works on “${meta.topicEn || 'AI monitoring at work'}”. Agent outputs were recorded from real DeepSeek runs (${meta.recordedAt || ''}, ${meta.model || ''}). Nothing here is saved.`)}</div>${button('exit-demo', '退出演示', 'Exit demo', 'btn small')}</div>`);
+    list.push(html`<div class="demo-banner" role="status"><div><strong>${t('演示回放', 'Demo replay')}</strong> · ${t(`学习者完成“${meta.topicZh || '职场AI监控'}”议论文。智能体输出录制自真实 DeepSeek 运行（${meta.recordedAt || ''}，${meta.model || ''}）。在此的操作不会保存。`, `A learner works on “${meta.topicEn || 'AI monitoring at work'}”. Agent outputs were recorded from real DeepSeek runs (${meta.recordedAt || ''}, ${meta.model || ''}). Nothing here is saved.`)}</div>${button('exit-demo', '退出演示', 'Exit demo', 'btn small')}</div>`);
   }
   if (ui.crossTab) list.push(html`<div class="warning-banner" role="alert">${t('此记录已在另一个标签页中修改。为避免覆盖，本页已暂停保存。', 'This record was changed in another tab. Saving is paused here to avoid overwriting it.')} ${button('reload', '重新载入', 'Reload', 'btn small')}</div>`);
   if (ui.restoreNotice) list.push(html`<div class="warning-banner" role="alert">${t('部分旧记录无法恢复，原始数据已备份在浏览器中：', 'Some saved parts could not be restored; the raw record was backed up in this browser: ')}${ui.restoreNotice.join(', ')} ${button('dismiss-restore', '知道了', 'OK', 'btn small secondary')}</div>`);
