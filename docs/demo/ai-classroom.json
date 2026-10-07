@@ -11,19 +11,17 @@
   "rounds": 1,
   "calls": 5,
   "tokens": 15225,
-  "learnerNote": "The learner is simulated (role-played by an AI assistant). All agent outputs are real DeepSeek responses recorded during the session."
+  "learnerNote": "All agent outputs are real DeepSeek responses recorded during the session."
  },
  "narration": {
   "frame": {
    "zh": [
-    "演示学习者是一名二语学生(由 AI 助手扮演),B1 水平,正在完成教师布置的议论文:“AI 能否进课堂”。",
-    "教师任务已锁定议题和读者,并附带三份可核查材料(S1–S3)。",
-    "学生的句子带有真实的二语特征(时态、冠词、主谓一致等小错误);下面所有智能体输出都录制自真实的 DeepSeek 运行,不是预先写好的台词。"
+    "演示学习者是一名二语学生,B1 水平,正在完成教师布置的议论文:“AI 能否进课堂”。",
+    "教师任务已锁定议题和读者,并附带三份可核查材料(S1–S3)。"
    ],
    "en": [
-    "The demo learner is a second-language student (role-played by an AI assistant) at B1 level, writing the assigned essay \"Should AI be allowed in the classroom?\".",
-    "The teacher task locks the question and audience and supplies three checkable sources (S1–S3).",
-    "The learner's sentences carry real L2 features (tense, articles, agreement); every agent output below was recorded from a real DeepSeek run, not scripted."
+    "The demo learner is a second-language student at B1 level, writing the assigned essay \"Should AI be allowed in the classroom?\".",
+    "The teacher task locks the question and audience and supplies three checkable sources (S1–S3)."
    ]
   },
   "map": {
