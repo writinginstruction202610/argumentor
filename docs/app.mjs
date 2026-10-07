@@ -438,7 +438,7 @@ function startHere(round) {
   if (!coordinator) return '';
   const fallback = coordinator.priorities.some(item => item.fallback);
   return html`<article class="agent-card coordinator start-here" id="card-coordinator">
-    <div class="agent-top"><span class="agent-avatar">R</span><div><h3>${t('从这里开始', 'Start here')} · ${tx(ROLE_NAMES.coordinator)}</h3><small>${tx(ROLE_HELP.coordinator)}</small></div></div>
+    <div class="agent-top"><span class="agent-avatar">R</span><div><h3>${t('修订重点', 'Revision priorities')} · ${tx(ROLE_NAMES.coordinator)}</h3><small>${tx(ROLE_HELP.coordinator)}</small></div></div>
     <h4 lang="en">${coordinator.focus}</h4>
     ${round.self ? html`<div class="self-compare"><span>${t('你的判断', 'You flagged')}: <b>${targetLabelFull(round.self.label)}</b></span>${analyst?.selfAssessment ? html`<span class="tag agree-${analyst.selfAssessment.agreement}">${{ agree: t('分析者同意', 'Analyst agrees'), partly: t('部分同意', 'Partly agrees'), different: t('分析者有不同看法', 'Analyst sees it differently') }[analyst.selfAssessment.agreement]}</span><p lang="en">${analyst.selfAssessment.note}</p>` : ''}</div>` : ''}
     <div class="priorities">${coordinator.priorities.map(item => html`<div class="priority" id="item-${item.id}">
@@ -595,10 +595,10 @@ function coachOutput() {
   const stale = round && viewingLatest() && round.input && safeSnapshot() && !sameInput(round.input, safeSnapshot());
   return html`${flow(round)}
     ${ui.error ? html`<div class="error" role="alert">${errorText(ui.error.code)}${ui.error.field ? html` <button type="button" class="link-button" data-act="goto-field" data-path="${ui.error.field}">${t('查看', 'Go to')} ${fieldLabel(ui.error.field)}</button>` : ''}</div>` : ''}
-    ${!round ? html`<div class="empty"><span class="big">A → S + L → R</span>${t('先完成上面的自评与同意，再运行反馈。反馈会引用你的原话，并提出需要你回答的问题。', 'Complete the self-assessment and consent above, then run feedback. It quotes your own words and asks questions for you to answer.')}</div>` : html`
+    ${!round ? html`<div class="empty"><span class="big">A → Q → L → R</span>${t('先完成上面的自评与同意，再运行反馈。反馈会引用你的原话，并提出需要你回答的问题。', 'Complete the self-assessment and consent above, then run feedback. It quotes your own words and asks questions for you to answer.')}</div>` : html`
       <p class="run-status">${t('第', 'Round ')}${round.id}${t(' 轮', '')} · ${round.status === 'running' ? t('进行中', 'running') : round.status === 'partial' ? t('部分完成', 'partial') : t('已完成', 'complete')} · ${stamp(round.meta?.at || round.startedAt)}${round.meta?.live === false ? ` · ${t('离线模板', 'offline template')}` : ''}</p>
       ${stale ? html`<div class="callout warning">${t('你在本轮之后修改了论证。下面的反馈针对的是本轮提交的版本；修改完成后可以运行新一轮。', 'You have changed the map since this round. The feedback below refers to the version reviewed in this round; run a new round when you are ready.')}</div>` : ''}
-      ${startHere(round)}${strengthCard(round)}${questionsCard(round)}${analystCard(round)}${languageCard(round)}
+      ${analystCard(round)}${strengthCard(round)}${questionsCard(round)}${languageCard(round)}${startHere(round)}
       ${round.results.analyst ? guardFooter(round) : ''}`}`;
 }
 
@@ -983,7 +983,7 @@ async function runReview() {
     save(true);
     await refreshService();
     render();
-    if (round.results.coordinator) document.getElementById('card-coordinator')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (round.results.analyst || round.results.coordinator) (document.getElementById('card-analyst') || document.getElementById('card-coordinator'))?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }
 
