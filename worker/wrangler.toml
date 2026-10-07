@@ -10,7 +10,7 @@ compatibility_date = "2026-01-01"
 [vars]
 DEEPSEEK_MODEL = "deepseek-flash"
 # Only this origin may call the Worker from a browser. Set it to your GitHub Pages URL.
-ALLOWED_ORIGIN = "https://tianschu.github.io"
+ALLOWED_ORIGIN = "https://writinginstruction202610.github.io"
 # Hard daily ceilings on YOUR balance. The Worker refuses until the next UTC day once either is reached.
 MAX_DAILY_CALLS = "10000"
 MAX_DAILY_TOKENS = "10000000000"
