@@ -1,0 +1,49 @@
+{
+  "kind": "argumentor-task",
+  "version": 1,
+  "title": "Unit 8 · AI in the classroom",
+  "topic": "Should AI be allowed in the classroom?",
+  "audience": "Our school's teachers and the head teacher",
+  "lockTopic": true,
+  "instructions": "Write an argumentative essay of 220–350 words for the audience above. Take a clear position, support it with at least two reasons, and answer the strongest objection. Use the source pack for checkable evidence and cite sources as S1–S3. If you quote a source, copy the words exactly and put them in quotation marks.",
+  "requirements": [
+    "At least two reasons, each with evidence and a warrant",
+    "At least one counterargument with a response",
+    "Cite at least one source from the pack (S1–S3) with an exact quotation",
+    "Disclose any AI use in your AI-use statement"
+  ],
+  "wordMin": 220,
+  "wordMax": 350,
+  "level": "B1",
+  "focus": ["evidence", "warrant", "counterargument"],
+  "languageFocus": "stance",
+  "minDialogue": 1,
+  "aiUse": "argumentor-only",
+  "reflectionLanguage": "either",
+  "vocabulary": [
+    ["allow", "允许", "To let something happen."],
+    ["check", "核对/检查", "To look at work to see if it is right."],
+    ["rely on", "依赖", "To depend on something too much."],
+    ["rule", "规则", "An instruction about what is allowed."],
+    ["think for oneself", "独立思考", "To do the thinking by yourself."],
+    ["responsible", "负责任的", "Being in charge of and answerable for something."]
+  ],
+  "sources": [
+    {
+      "title": "Case A: A teacher's classroom notebook",
+      "kind": "Teacher-written fictional case",
+      "text": "I tried something with my class this term. Half of the students were allowed to use an AI tool to check their own answers after they finished, and half used it to get the answer at the start. At the end of the unit I gave a short test with no tools. The students who used AI to check their own answers remembered the lesson better than the students who used AI to get the answer. My note to myself was short: it is not the tool, it is when and how you use it."
+    },
+    {
+      "title": "Case B: A group project that went wrong",
+      "kind": "Teacher-written fictional case",
+      "text": "In a group project last year, one group handed in an essay that looked very good. But when I asked them simple questions about it, two students handed in work that they could not explain, because the AI had written it for them. They could not say what their own argument was. The other students in the class, who used AI only to fix grammar, could explain every sentence they wrote."
+    },
+    {
+      "title": "Teacher's note: a classroom rule",
+      "kind": "Teacher summary of a classroom principle (not a legal text)",
+      "text": "Many teachers now agree on one thing: allowing AI with a clear rule works better than banning it, because students will use it anyway outside class. A rule that students understand, such as 'AI is for checking and learning, not for writing your work for you', is easier to follow than a ban nobody obeys. The point is not to stop the tool but to keep the thinking with the student."
+    }
+  ],
+  "teacherNote": "All three cases are fictional and were written for this unit. You may argue for or against allowing AI in the classroom; both positions can be strong if they use the sources fairly."
+}

@@ -19,7 +19,7 @@ const LEGACY = 'argumentor-course-v3';
 const PORTFOLIO = 'argumentor-portfolio-v1';
 const PUBLIC_FLAG = 'argumentor-public-mode';
 const CONSENT_KEY = 'argumentor-consent';
-const DEMO_URL = './demo/workplace-ai-monitoring.json'; // relative, so it works under a project-site subpath (…github.io/argumentor/)
+const DEMO_URL = './demo/ai-classroom.json'; // relative, so it works under a project-site subpath (…github.io/argumentor/)
 
 let state = defaultState();
 let service = { configured: false, online: false, live: true, model: '', mode: 'multi', provider: 'DeepSeek', accessCodeRequired: false, keyInProjectFolder: false, remainingCalls: 0 };

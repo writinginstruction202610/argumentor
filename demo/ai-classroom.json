@@ -1,0 +1,631 @@
+{
+ "kind": "argumentor-demo",
+ "version": 1,
+ "meta": {
+  "topicZh": "AI 能否进课堂",
+  "topicEn": "Should AI be allowed in the classroom?",
+  "recordedAt": "2026-10-07",
+  "model": "deepseek-flash",
+  "promptVersion": "9516996130e4",
+  "appVersion": "4.0.0",
+  "rounds": 1,
+  "calls": 5,
+  "tokens": 15225,
+  "learnerNote": "The learner is simulated (role-played by an AI assistant). All agent outputs are real DeepSeek responses recorded during the session."
+ },
+ "narration": {
+  "frame": {
+   "zh": [
+    "演示学习者是一名二语学生(由 AI 助手扮演),B1 水平,正在完成教师布置的议论文:“AI 能否进课堂”。",
+    "教师任务已锁定议题和读者,并附带三份可核查材料(S1–S3)。",
+    "学生的句子带有真实的二语特征(时态、冠词、主谓一致等小错误);下面所有智能体输出都录制自真实的 DeepSeek 运行,不是预先写好的台词。"
+   ],
+   "en": [
+    "The demo learner is a second-language student (role-played by an AI assistant) at B1 level, writing the assigned essay \"Should AI be allowed in the classroom?\".",
+    "The teacher task locks the question and audience and supplies three checkable sources (S1–S3).",
+    "The learner's sentences carry real L2 features (tense, articles, agreement); every agent output below was recorded from a real DeepSeek run, not scripted."
+   ]
+  },
+  "map": {
+   "zh": [
+    "学生在证据里引用了 S1 和 S3 的原句,并加了引号。",
+    "诚信守门逐词核对后确认引文确实出自材料(“已核实”)——这一步是程序完成的,没有调用模型。"
+   ],
+   "en": [
+    "The learner quoted S1 and S3 word for word in the evidence fields.",
+    "The integrity guard checked each quote against the sources and confirmed it (\"verified\") — done by software, with no model call."
+   ]
+  },
+  "coach": {
+   "zh": [
+    "学生先自评“理由 1 的推理(warrant)可能只是重复理由”,分析角色据此展开。",
+    "对话是关键:在三轮追问后,学生自己得出结论——“AI 只有在学生先自己思考、再用它核对时才有帮助”。",
+    "这句话是学生写的,不是 AI 写的;系统只是不断追问,从不替学生作答。"
+   ],
+   "en": [
+    "The learner self-assessed that \"Reason 1's warrant may just repeat the reason\"; the analyst took it from there.",
+    "The dialogue is where the work happens: after three turns, the learner reached their own conclusion — \"AI only helps when students think first and use it to check\".",
+    "That sentence is the learner's, not the AI's. The system only kept asking."
+   ]
+  },
+  "revise": {
+   "zh": [
+    "每条修订重点都必须作出决定:采纳、调整、不采纳,或“还没看懂”。拒绝也要写明理由。",
+    "修订稿由学生自己完成:主张收窄为“只用于核对与学习”,推理也说清了“为什么”。",
+    "修订检查只描述“读者现在能看到什么”,不打分。"
+   ],
+   "en": [
+    "Every priority needs a decision: accept, adapt, reject, or \"not sure what it means\". A rejection needs a reason too.",
+    "The learner writes the revision themselves: the claim narrows to \"only for checking and learning\", and the warrant now explains WHY.",
+    "The revision check only describes what a reader can now see; it does not score."
+   ]
+  },
+  "reflect": {
+   "zh": [
+    "学生的策略被保存为下一次任务的目标:“检查我的 warrant 是否解释了原因,而不是重复理由。”",
+    "AI 使用说明根据过程记录自动草拟,由学生确认后导出。",
+    "导出的记录带有校验码,教师可在“教师”页面汇总全班情况。"
+   ],
+   "en": [
+    "The learner's strategy is kept as the goal for next time: \"check whether my warrant explains WHY, not just repeats the reason\".",
+    "The AI-use statement is drafted from the process record and confirmed by the learner before export.",
+    "The exported record carries a checksum; teachers aggregate the class on the Teacher page."
+   ]
+  }
+ },
+ "state": {
+  "version": 4,
+  "lang": "en",
+  "page": "coach",
+  "learnerCode": "DEMO-AICLS",
+  "task": {
+   "kind": "argumentor-task",
+   "version": 1,
+   "title": "Unit 8 · AI in the classroom",
+   "topic": "Should AI be allowed in the classroom?",
+   "audience": "Our school's teachers and the head teacher",
+   "lockTopic": true,
+   "instructions": "Write an argumentative essay of 220–350 words for the audience above. Take a clear position, support it with at least two reasons, and answer the strongest objection. Use the source pack for checkable evidence and cite sources as S1–S3. If you quote a source, copy the words exactly and put them in quotation marks.",
+   "requirements": [
+    "At least two reasons, each with evidence and a warrant",
+    "At least one counterargument with a response",
+    "Cite at least one source from the pack (S1–S3) with an exact quotation",
+    "Disclose any AI use in your AI-use statement"
+   ],
+   "wordMin": 220,
+   "wordMax": 350,
+   "level": "B1",
+   "focus": [
+    "evidence",
+    "warrant",
+    "counterargument"
+   ],
+   "languageFocus": "stance",
+   "minDialogue": 1,
+   "aiUse": "argumentor-only",
+   "reflectionLanguage": "either",
+   "vocabulary": [
+    [
+     "allow",
+     "允许",
+     "To let something happen."
+    ],
+    [
+     "check",
+     "核对/检查",
+     "To look at work to see if it is right."
+    ],
+    [
+     "rely on",
+     "依赖",
+     "To depend on something too much."
+    ],
+    [
+     "rule",
+     "规则",
+     "An instruction about what is allowed."
+    ],
+    [
+     "think for oneself",
+     "独立思考",
+     "To do the thinking by yourself."
+    ],
+    [
+     "responsible",
+     "负责任的",
+     "Being in charge of and answerable for something."
+    ]
+   ],
+   "sources": [
+    {
+     "id": "S1",
+     "title": "Case A: A teacher's classroom notebook",
+     "kind": "Teacher-written fictional case",
+     "text": "I tried something with my class this term. Half of the students were allowed to use an AI tool to check their own answers after they finished, and half used it to get the answer at the start. At the end of the unit I gave a short test with no tools. The students who used AI to check their own answers remembered the lesson better than the students who used AI to get the answer. My note to myself was short: it is not the tool, it is when and how you use it."
+    },
+    {
+     "id": "S2",
+     "title": "Case B: A group project that went wrong",
+     "kind": "Teacher-written fictional case",
+     "text": "In a group project last year, one group handed in an essay that looked very good. But when I asked them simple questions about it, two students handed in work that they could not explain, because the AI had written it for them. They could not say what their own argument was. The other students in the class, who used AI only to fix grammar, could explain every sentence they wrote."
+    },
+    {
+     "id": "S3",
+     "title": "Teacher's note: a classroom rule",
+     "kind": "Teacher summary of a classroom principle (not a legal text)",
+     "text": "Many teachers now agree on one thing: allowing AI with a clear rule works better than banning it, because students will use it anyway outside class. A rule that students understand, such as 'AI is for checking and learning, not for writing your work for you', is easier to follow than a ban nobody obeys. The point is not to stop the tool but to keep the thinking with the student."
+    }
+   ],
+   "teacherNote": "All three cases are fictional and were written for this unit. You may argue for or against allowing AI in the classroom; both positions can be strong if they use the sources fairly."
+  },
+  "data": {
+   "topic": "Should AI be allowed in the classroom?",
+   "audience": "Our school's teachers and the head teacher",
+   "claim": "AI should be allowed in the classroom, but students must use it only to check and to learn, not to do all the work for them.",
+   "qualifier": "This mean AI is a help for learning, and the teacher can still see what students can do by themself.",
+   "level": "B1",
+   "arguments": [
+    {
+     "reason": "When students use AI to check their own work, they learn more than when AI give them the answer.",
+     "evidence": "In one class, \"The students who used AI to check their own answers remembered the lesson better than the students who used AI to get the answer.\"",
+     "evidenceType": "source",
+     "source": "S1",
+     "warrant": "So AI is good when it help students to think, not when it think for them."
+    },
+    {
+     "reason": "A clear rule is better than banning AI, because the students will use it anyway.",
+     "evidence": "The teacher note says that \"allowing AI with a clear rule works better than banning it, because students will use it anyway outside class.\"",
+     "evidenceType": "source",
+     "source": "S3",
+     "warrant": "If we ban it, students still use it secretly and they learn nothing about how to use it well."
+    }
+   ],
+   "counters": [
+    {
+     "target": "Claim",
+     "counter": "Some teachers think if we allow AI, students will stop thinking and just copy everything.",
+     "strategy": "qualify",
+     "response": "This can happen: in a group project \"two students handed in work that they could not explain, because the AI had written it for them.\" So the rule must say AI is only for checking, not for writing all the essay."
+    }
+   ],
+   "draft": "Nowadays AI is everywhere, so the school must decide about it. I think AI should be allowed in the classroom, but only in a careful way. First, when students use AI to check their own work, they learn more than when AI give them the answer. In one class, \"The students who used AI to check their own answers remembered the lesson better than the students who used AI to get the answer.\" This show that AI is good when it help students to think. Second, a clear rule is better than banning AI, because the students will use it anyway outside class. Some teachers worry that students will stop thinking and just copy. This can happen, because in one group two students could not explain their own work. So the rule must say AI is only for checking and learning, not for writing all the work for you. In this way, students still think by themself and the teacher can see what they can really do."
+  },
+  "rounds": [
+   {
+    "id": 1,
+    "startedAt": "2026-10-07T10:42:32.595Z",
+    "input": {
+     "topic": "Should AI be allowed in the classroom?",
+     "audience": "Our school's teachers and the head teacher",
+     "claim": "AI should be allowed in the classroom, but students must use it only to check and to learn, not to do all the work for them.",
+     "qualifier": "This mean AI is a help for learning, and the teacher can still see what students can do by themself.",
+     "draft": "Nowadays AI is everywhere, so the school must decide about it. I think AI should be allowed in the classroom, but only in a careful way. First, when students use AI to check their own work, they learn more than when AI give them the answer. In one class, \"The students who used AI to check their own answers remembered the lesson better than the students who used AI to get the answer.\" This show that AI is good when it help students to think. Second, a clear rule is better than banning AI, because the students will use it anyway outside class. Some teachers worry that students will stop thinking and just copy. This can happen, because in one group two students could not explain their own work. So the rule must say AI is only for checking and learning, not for writing all the work for you. In this way, students still think by themself and the teacher can see what they can really do.",
+     "level": "B1",
+     "arguments": [
+      {
+       "reason": "When students use AI to check their own work, they learn more than when AI give them the answer.",
+       "evidence": "In one class, \"The students who used AI to check their own answers remembered the lesson better than the students who used AI to get the answer.\"",
+       "evidenceType": "source",
+       "source": "S1",
+       "warrant": "So AI is good when it help students to think, not when it think for them."
+      },
+      {
+       "reason": "A clear rule is better than banning AI, because the students will use it anyway.",
+       "evidence": "The teacher note says that \"allowing AI with a clear rule works better than banning it, because students will use it anyway outside class.\"",
+       "evidenceType": "source",
+       "source": "S3",
+       "warrant": "If we ban it, students still use it secretly and they learn nothing about how to use it well."
+      }
+     ],
+     "counters": [
+      {
+       "target": "Claim",
+       "counter": "Some teachers think if we allow AI, students will stop thinking and just copy everything.",
+       "strategy": "qualify",
+       "response": "This can happen: in a group project \"two students handed in work that they could not explain, because the AI had written it for them.\" So the rule must say AI is only for checking, not for writing all the essay."
+      }
+     ]
+    },
+    "status": "complete",
+    "self": {
+     "element": "arguments.0.warrant",
+     "label": "Reason 1 warrant",
+     "reason": "I am not sure my warrant is clear, maybe it just repeat my reason again.",
+     "question": ""
+    },
+    "results": {
+     "analyst": {
+      "role": "analyst",
+      "focus": "Make each warrant do two jobs: show why the evidence proves the reason, and why that reason supports the claim for teachers.",
+      "items": [
+       {
+        "id": "A1",
+        "criterion": "warrant",
+        "target": "Reason 1",
+        "anchor": "So AI is good when it help students to think, not when it think for them",
+        "anchorField": "arguments.0.warrant",
+        "text": "This warrant repeats the reason instead of explaining it. A sceptical teacher would ask: how does one class test show that checking answers causes better memory? The warrant needs to link the evidence to the reason, and then to the claim."
+       },
+       {
+        "id": "A2",
+        "criterion": "warrant",
+        "target": "Reason 2",
+        "anchor": "If we ban it, students still use it secretly and they learn nothing about how to use it well",
+        "anchorField": "arguments.1.warrant",
+        "text": "This explains why the evidence supports the reason, but not why the reason supports the claim for teachers. A teacher would ask: why does a rule work better than a ban for our school? The claim link is missing."
+       },
+       {
+        "id": "A3",
+        "criterion": "counterargument",
+        "target": "Counterargument 1",
+        "anchor": "Some teachers think if we allow AI, students will stop thinking and just copy everything",
+        "anchorField": "counters.0.counter",
+        "text": "The objection is stated fairly, and the response qualifies the claim. But the response does not say why the rule would stop copying. A teacher would ask: how does the rule prevent the problem you just admitted?"
+       }
+      ],
+      "questions": [],
+      "frames": [],
+      "schemes": [
+       {
+        "target": "Reason 1",
+        "scheme": "cause",
+        "note": "Claims checking with AI causes better memory than getting answers."
+       },
+       {
+        "target": "Reason 2",
+        "scheme": "practical",
+        "note": "Argues a clear rule works better than a ban in practice."
+       }
+      ],
+      "checks": {
+       "claim": {
+        "scope": "qualified",
+        "answersTopic": "yes"
+       },
+       "reasons": [
+        {
+         "target": "Reason 1",
+         "evidenceStatus": "source",
+         "evidenceLink": "partly",
+         "claimLink": "missing"
+        },
+        {
+         "target": "Reason 2",
+         "evidenceStatus": "source",
+         "evidenceLink": "explained",
+         "claimLink": "missing"
+        }
+       ],
+       "counterarguments": [
+        {
+         "target": "Counterargument 1",
+         "fairness": "fair",
+         "responseType": "qualify"
+        }
+       ]
+      },
+      "strength": {
+       "target": "Counterargument 1",
+       "anchor": "So the rule must say AI is only for checking, not for writing all the essay",
+       "anchorField": "counters.0.response",
+       "text": "You state the objection fairly and respond by qualifying the claim, not dismissing it. This is a strong reasoning move."
+      },
+      "selfAssessment": {
+       "agreement": "agree",
+       "note": "You are right: the warrant repeats the reason. It needs to explain why the evidence proves the reason and why the reason supports the claim."
+      },
+      "priorities": [],
+      "tension": "",
+      "nextStep": "",
+      "guard": {
+       "repaired": false,
+       "regenerated": false,
+       "notes": []
+      },
+      "meta": {
+       "servedModel": "deepseek-flash",
+       "ms": 3245,
+       "tokens": 3811,
+       "calls": 1
+      }
+     },
+     "socratic": {
+      "role": "socratic",
+      "focus": "These questions help you test whether your warrants really connect your evidence to your reasons and your reasons to your claim.",
+      "items": [],
+      "questions": [
+       {
+        "id": "Q1",
+        "type": "evidence",
+        "target": "Reason 1",
+        "anchor": "So AI is good when it help students to think, not when it think for them",
+        "anchorField": "arguments.0.warrant",
+        "text": "What in the class test shows that checking answers, not something else, caused better memory?"
+       },
+       {
+        "id": "Q2",
+        "type": "alternative",
+        "target": "Reason 1",
+        "anchor": "The students who used AI to check their own answers remembered the lesson better",
+        "anchorField": "draft",
+        "text": "What other reasons could explain why one group remembered the lesson better?"
+       },
+       {
+        "id": "Q3",
+        "type": "audience",
+        "target": "Reason 2",
+        "anchor": "If we ban it, students still use it secretly and they learn nothing about how to use it well",
+        "anchorField": "arguments.1.warrant",
+        "text": "How would you show the teachers that a clear rule works better than a ban in your school?"
+       }
+      ],
+      "frames": [],
+      "schemes": [],
+      "checks": null,
+      "strength": null,
+      "selfAssessment": null,
+      "priorities": [],
+      "tension": "",
+      "nextStep": "",
+      "guard": {
+       "repaired": false,
+       "regenerated": false,
+       "notes": []
+      },
+      "meta": {
+       "servedModel": "deepseek-flash",
+       "ms": 1804,
+       "tokens": 2933,
+       "calls": 1
+      }
+     },
+     "language": {
+      "role": "language",
+      "focus": "Your stance words (must, only) are very strong, so check that your evidence can carry that strength.",
+      "items": [
+       {
+        "id": "L1",
+        "criterion": "stance",
+        "target": "Claim",
+        "anchor": "students must use it only to check and to learn",
+        "anchorField": "claim",
+        "text": "'Must' and 'only' are boosters (very strong words). They leave no room for other good uses. A teacher may ask: is your evidence strong enough for such a firm rule? Softer wording would match your evidence better."
+       },
+       {
+        "id": "L2",
+        "criterion": "stance",
+        "target": "Counterargument 1",
+        "anchor": "This can happen, because in one group two students could not explain their own work",
+        "anchorField": "draft",
+        "text": "'This' is vague (not clear which idea it points to). Readers must guess. Also, one small group is weak support for a general worry. Name the idea clearly and show how far the evidence reaches."
+       }
+      ],
+      "questions": [],
+      "frames": [
+       {
+        "move": "limit a claim",
+        "text": "In most cases, …, although …"
+       },
+       {
+        "move": "point to an idea",
+        "text": "This risk …"
+       },
+       {
+        "move": "soften a rule",
+        "text": "The rule should mainly …"
+       }
+      ],
+      "schemes": [],
+      "checks": null,
+      "strength": null,
+      "selfAssessment": null,
+      "priorities": [],
+      "tension": "",
+      "nextStep": "",
+      "guard": {
+       "repaired": false,
+       "regenerated": false,
+       "notes": []
+      },
+      "meta": {
+       "servedModel": "deepseek-flash",
+       "ms": 1806,
+       "tokens": 3094,
+       "calls": 1
+      }
+     },
+     "coordinator": {
+      "role": "coordinator",
+      "focus": "Your own worry about the Reason 1 warrant is the right one: make the warrant explain the link, and then show why Reason 2 matters to the teachers.",
+      "items": [],
+      "questions": [],
+      "frames": [],
+      "schemes": [],
+      "checks": null,
+      "strength": null,
+      "selfAssessment": null,
+      "priorities": [
+       {
+        "id": "R1",
+        "target": "Reason 1",
+        "type": "argument",
+        "text": "Look at your Reason 1 warrant and the class test evidence. Examine what the test actually shows, and whether your warrant explains that link or just repeats the reason.",
+        "successCheck": "Does my warrant explain how the evidence shows the reason is true?",
+        "basedOn": [
+         "A1",
+         "Q1"
+        ],
+        "fallback": false
+       },
+       {
+        "id": "R2",
+        "target": "Reason 2",
+        "type": "argument",
+        "text": "Look at your Reason 2 warrant about banning AI. Examine why a clear rule would work better for your school's teachers, and what link to your claim is still missing.",
+        "successCheck": "Does my warrant say why this reason matters to the teachers?",
+        "basedOn": [
+         "A2",
+         "Q3"
+        ],
+        "fallback": false
+       }
+      ],
+      "tension": "",
+      "nextStep": "Answer Q1 in the dialogue panel first, then revise your Reason 1 warrant in Step 4.",
+      "guard": {
+       "repaired": false,
+       "regenerated": false,
+       "notes": []
+      },
+      "meta": {
+       "servedModel": "deepseek-flash",
+       "ms": 1539,
+       "tokens": 3321,
+       "calls": 1
+      }
+     }
+    },
+    "roleErrors": {},
+    "meta": {
+     "runId": "",
+     "model": "deepseek-flash",
+     "servedModel": "deepseek-flash",
+     "promptVersion": "9516996130e4",
+     "mode": "multi",
+     "provider": "DeepSeek",
+     "live": true,
+     "calls": 4,
+     "repairs": 0,
+     "tokens": 13159,
+     "ms": 6609,
+     "at": "2026-10-07T10:42:32.600Z",
+     "appVersion": "",
+     "params": {
+      "temperature": 0.3,
+      "maxTokens": 1800,
+      "thinking": ""
+     },
+     "consent": null
+    },
+    "dialogue": {
+     "Q1": {
+      "kind": "question",
+      "closed": true,
+      "takeaway": "AI helps learning only when students do the thinking first and use AI to check.",
+      "turns": [
+       {
+        "from": "learner",
+        "text": "I think it show that checking with AI is better for learning. But maybe it not really prove the students think by themself.",
+        "move": "",
+        "insight": "",
+        "at": ""
+       },
+       {
+        "from": "coach",
+        "text": "You noticed the test may not prove thinking. Good. Now look at the class test itself: what did the students do in it, and could another thing explain the better memory?",
+        "move": "probe",
+        "insight": "",
+        "at": ""
+       },
+       {
+        "from": "learner",
+        "text": "Hmm, so the difference is: when students check their answer, they still do the thinking first. When AI give the answer, the student do not think at all.",
+        "move": "",
+        "insight": "",
+        "at": ""
+       },
+       {
+        "from": "coach",
+        "text": "You described two groups, but not the test itself. What exactly did the checking group do before they saw the AI answer? Name one step, so we can see if that step caused the better memory.",
+        "move": "press",
+        "insight": "",
+        "at": ""
+       },
+       {
+        "from": "learner",
+        "text": "So my warrant should say that AI helps learning only when students do the thinking first and use AI just to check.",
+        "move": "",
+        "insight": "",
+        "at": ""
+       },
+       {
+        "from": "coach",
+        "text": "You worked out that your warrant needs a condition: AI helps only when students think first. That is your own idea, and it sharpens Reason 1. Carry it into your revision. Also check whether your class test shows that step, or only the result.",
+        "move": "close",
+        "insight": "AI helps learning only when students do the thinking first and use AI just to check",
+        "at": ""
+       }
+      ]
+     }
+    },
+    "decisions": {
+     "R1": {
+      "decision": "accept",
+      "reason": "I will make my warrant clear and say students must think first, then use AI to check.",
+      "at": "2026-10-07T10:42:35.457Z"
+     },
+     "R2": {
+      "decision": "adapt",
+      "reason": "I will keep it but add one sentence about how the rule works in the class.",
+      "at": "2026-10-07T10:42:35.457Z"
+     }
+    },
+    "note": "",
+    "revised": "AI should be allowed in the classroom, but only as a tool for checking and learning, not for doing the work for students. First, AI helps learning only when students do the thinking first and use AI to check. In one class, \"The students who used AI to check their own answers remembered the lesson better than the students who used AI to get the answer.\" This shows that the learning happens because the students think first, and AI only checks their thinking afterwards. Second, a clear rule works better than a ban, because the students will use AI anyway outside class. The teacher note says that \"allowing AI with a clear rule works better than banning it, because students will use it anyway outside class.\" A rule like \"AI is only for checking, not for writing your work\" is easy to follow. Some teachers worry that students will stop thinking and just copy. This can happen: in a group project \"two students handed in work that they could not explain, because the AI had written it for them.\" That is exactly why the rule must allow AI only for checking. With this rule, students still think by themselves, and the teacher can still see what each student can really do.",
+    "revisions": [
+     {
+      "at": "2026-10-07T10:42:35.457Z",
+      "text": "AI should be allowed in the classroom, but only as a tool for checking and learning, not for doing the work for students. First, AI helps learning only when students do the thinking first and use AI to check. In one class, \"The students who used AI to check their own answers remembered the lesson better than the students who used AI to get the answer.\" This shows that the learning happens because the students think first, and AI only checks their thinking afterwards. Second, a clear rule works better than a ban, because the students will use AI anyway outside class. The teacher note says that \"allowing AI with a clear rule works better than banning it, because students will use it anyway outside class.\" A rule like \"AI is only for checking, not for writing your work\" is easy to follow. Some teachers worry that students will stop thinking and just copy. This can happen: in a group project \"two students handed in work that they could not explain, because the AI had written it for them.\" That is exactly why the rule must allow AI only for checking. With this rule, students still think by themselves, and the teacher can still see what each student can really do.",
+      "words": 211
+     }
+    ],
+    "check": {
+     "at": "2026-10-07T10:42:37.205Z",
+     "revised": "AI should be allowed in the classroom, but only as a tool for checking and learning, not for doing the work for students. First, AI helps learning only when students do the thinking first and use AI to check. In one class, \"The students who used AI to check their own answers remembered the lesson better than the students who used AI to get the answer.\" This shows that the learning happens because the students think first, and AI only checks their thinking afterwards. Second, a clear rule works better than a ban, because the students will use AI anyway outside class. The teacher note says that \"allowing AI with a clear rule works better than banning it, because students will use it anyway outside class.\" A rule like \"AI is only for checking, not for writing your work\" is easy to follow. Some teachers worry that students will stop thinking and just copy. This can happen: in a group project \"two students handed in work that they could not explain, because the AI had written it for them.\" That is exactly why the rule must allow AI only for checking. With this rule, students still think by themselves, and the teacher can still see what each student can really do.",
+     "meta": {
+      "servedModel": "deepseek-flash",
+      "promptVersion": "9516996130e4",
+      "tokens": 2066
+     },
+     "result": {
+      "focus": "The revision adds explicit warrant sentences that link each piece of evidence back to its reason, and it states the checking-only rule more concretely.",
+      "checks": [
+       {
+        "priorityId": "R1",
+        "status": "visible",
+        "anchor": "the learning happens because the students think first, and AI only checks their thinking afterwards",
+        "note": "The new sentence explains the link: thinking comes first, AI checks after. It no longer just repeats the reason. The class test evidence is now tied to that order."
+       },
+       {
+        "priorityId": "R2",
+        "status": "visible",
+        "anchor": "A rule like \"AI is only for checking, not for writing your work\" is easy to follow",
+        "note": "The revision adds a concrete rule sentence and says it is easy to follow. This shows how the rule works in class, which was the missing link to the teachers."
+       }
+      ],
+      "question": "Which warrant sentence will you reuse as a model when you write your next argument?",
+      "guard": {
+       "repaired": false,
+       "notes": []
+      }
+     }
+    }
+   }
+  ],
+  "current": 0,
+  "transfer": "Next time I will check if my warrant explains WHY, not just repeat my reason.",
+  "goalCheck": "",
+  "disclosure": "",
+  "aiUse": {
+   "argumentor": true,
+   "languageTools": false,
+   "contentTools": false,
+   "otherTools": "",
+   "ownWords": false
+  },
+  "researchConsent": false,
+  "events": [],
+  "createdAt": "",
+  "savedAt": ""
+ }
+}

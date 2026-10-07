@@ -86,7 +86,7 @@ or deploy \`worker/\` and rebuild with \`node build-site.mjs --api https://your-
 await rm(OUT, { recursive: true, force: true });
 await mkdir(join(OUT, 'demo'), { recursive: true });
 for (const file of [...MODULES, ...ASSETS]) await cp(join(ROOT, file), join(OUT, file));
-for (const file of ['workplace-ai-monitoring.json', 'task-workplace-ai.json']) await cp(join(ROOT, 'demo', file), join(OUT, 'demo', file));
+for (const file of ['ai-classroom.json', 'task-ai-classroom.json', 'workplace-ai-monitoring.json', 'task-workplace-ai.json']) await cp(join(ROOT, 'demo', file), join(OUT, 'demo', file));
 await writeFile(join(OUT, 'index.html'), indexHtml());
 // Deployment configuration as a module file. It carries no secret: either a public proxy URL, or a flag
 // saying there is no back end at all, so api.mjs skips probing an endpoint it knows is absent.
